@@ -12,13 +12,13 @@ public class Controladora_logica {
     public void guardar(String nombreMasco, String raza, String color, String observaciones, String alergico, String atenEsp, String nombreDuenio, String cellDuenio) {
         
         //Creamos dueño y asignamos sus valores recibidos por el constructor
-        Duenio duenio=new Duenio();
+        Duenio duenio = new Duenio();
    
         duenio.setNombre(nombreDuenio);
         duenio.setCelDuenio(cellDuenio);
         
         //Creamos mascota y asignamos sus valores
-        Mascota masco=new Mascota();
+        Mascota masco = new Mascota();
         
         masco.setNombre(nombreMasco);
         masco.setAlergico(alergico);
@@ -26,9 +26,13 @@ public class Controladora_logica {
         masco.setColor(color);
         masco.setObservaciones(observaciones);
         masco.setRaza(raza);
+        
+        //Asignamos dueño a la mascota
         masco.setUnDuenio(duenio);
         
-        controlPersis.guardar(duenio , masco);
+        //Enviamos a la controladora de persistencia ambos objetos
+        
+        controlPersis.guardar(duenio, masco);
     }
 
     public List<Mascota> traerMascotas() {
